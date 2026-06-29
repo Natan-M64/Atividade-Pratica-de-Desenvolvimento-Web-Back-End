@@ -1,6 +1,6 @@
 package com.baozistore.service;
 
-import com.baozistore.exception.ResourceNotFoundException;
+import com.baozistore.NotFoundException;
 import com.baozistore.model.Cliente;
 import com.baozistore.model.Pedido;
 import com.baozistore.model.Produto;
@@ -41,7 +41,7 @@ public class PedidoService {
 
     public Pedido buscarPorId(Long id) {
         return pedidoRepository.findById(id)
-                .orElseThrow(() -> new ResourceNotFoundException("Pedido nao encontrado: " + id));
+                .orElseThrow(() -> new NotFoundException("Pedido nao encontrado: " + id));
     }
 
     public Pedido atualizar(Long id, Long clienteId, Long produtoId, Integer quantidade) {

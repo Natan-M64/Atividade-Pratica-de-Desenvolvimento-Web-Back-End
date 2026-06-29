@@ -1,6 +1,6 @@
 package com.baozistore.service;
 
-import com.baozistore.exception.ResourceNotFoundException;
+import com.baozistore.NotFoundException;
 import com.baozistore.model.Cliente;
 import com.baozistore.repository.ClienteRepository;
 import org.springframework.stereotype.Service;
@@ -26,7 +26,7 @@ public class ClienteService {
 
     public Cliente buscarPorId(Long id) {
         return clienteRepository.findById(id)
-                .orElseThrow(() -> new ResourceNotFoundException("Cliente nao encontrado: " + id));
+                .orElseThrow(() -> new NotFoundException("Cliente nao encontrado: " + id));
     }
 
     public Cliente atualizar(Long id, Cliente dados) {

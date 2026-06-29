@@ -1,6 +1,6 @@
 package com.baozistore.service;
 
-import com.baozistore.exception.ResourceNotFoundException;
+import com.baozistore.NotFoundException;
 import com.baozistore.model.Produto;
 import com.baozistore.repository.ProdutoRepository;
 import org.springframework.stereotype.Service;
@@ -26,7 +26,7 @@ public class ProdutoService {
 
     public Produto buscarPorId(Long id) {
         return produtoRepository.findById(id)
-                .orElseThrow(() -> new ResourceNotFoundException("Produto nao encontrado: " + id));
+                .orElseThrow(() -> new NotFoundException("Produto nao encontrado: " + id));
     }
 
     public Produto atualizar(Long id, Produto dados) {
